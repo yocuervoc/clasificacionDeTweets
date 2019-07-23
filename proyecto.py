@@ -14,13 +14,13 @@ from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
 #importo el dataset
-dataset = pd.read_csv('Restaurant_Reviews.tsv', delimiter= '\t', quoting= 3)
+dataset = pd.read_csv('TWEETS_LISTOS.tsv', delimiter= '\t', quoting= 3)
 
 #aqui se limpia el texto de palabras que no aportan
 
 tweets_limpios = []
-for i in range(0, 1000):
-    tweet = re.sub('[^a-zA-Z]', ' ',dataset['Review'][i])
+for i in range(0, 225):
+    tweet = re.sub('[^a-zA-Z]', ' ',dataset['text'][i])
     tweet = tweet.lower()
     tweet = tweet.split()
     # stopwords.words('spanish') stopword en español
@@ -54,12 +54,3 @@ y_pred = classifier.predict(X_test)
 #matriz de confusion 
 cm = confusion_matrix(y_test, y_pred)
 print (cm)
-
-
-
-
-
-
-
-
-
